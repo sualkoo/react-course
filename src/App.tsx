@@ -4,6 +4,11 @@ import "./App.css";
 import { format } from "date-fns";
 import { IPersonDto, IUserDto, StatusEnum } from "./types/user.dto";
 
+interface IAnimal {
+  name: string;
+  age: number;
+}
+
 function App() {
   const user: IPersonDto = {
     age: 12,
@@ -11,34 +16,27 @@ function App() {
   };
   console.log(user.name);
 
-  const displayOnlyActiveUsers = () => {
-    if (user.status === StatusEnum.ACTIVE) {
-      console.log("active user");
-    } else if (user?.status === StatusEnum.PASSIVE) {
-      console.log("passive user");
-    }
-  };
+  const animals: IAnimal[] = [
+    {
+      name: "Cheetah",
+      age: 12,
+    },
+    {
+      name: "Owl",
+      age: 2,
+    },
+  ];
 
-  displayOnlyActiveUsers();
+  // const filteredAnimals = animals?.filter((animal) => animal.age > 3);
 
-  const date = new Date();
-  const num = 2;
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+  //filter -> filter IN
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {animals
+        ?.filter((animal) => animal.age > 3)
+        ?.map((animal) => animal.name)}
     </div>
   );
 }
