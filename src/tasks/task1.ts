@@ -14,16 +14,6 @@ export enum LocationsEnum {
   UKR = "Ukraine"
 }
 
-export enum FoxEnum {
-  SOFT = "Soft",
-  ROUGH = "Rough"
-}
-
-export enum SkinTypeEnum {
-  DARK = "dark",
-  LIGHT = "light"
-}
-
 export interface IAnimalResponse {
   name?: string;
   weight?: number;
@@ -34,19 +24,31 @@ export interface IAnimalResponse {
   topSpeed?: number;
 }
 
+export enum FoxEnum {
+  SOFT = "Soft",
+  ROUGH = "Rough"
+}
+
+export enum SkinTypeEnum {
+  DARK = "dark",
+  LIGHT = "light"
+}
+
 export interface IFox extends IAnimalResponse {
   furSoftness: FoxEnum;
   skinType: SkinTypeEnum;
   ageOfSexualMaturity?: number;
 }
 
-// Dalej na stranke sa zaoberate specifickym druhom lisiek, ktore maju okrem zakladnych animal parametrov,
-// aj dalsie parametre ako: furSoftness, skinType a ageOfSexualMaturity. Napiste co najjednoduchsie interface
-// ktory bude popisavat tieto konkretne druhy lisok
 
-// napiste prikladny response zo servera v const premennej ako by vyzeral backendovy response, keby
-// volam taketo animals API s tym ze nespecifikujem urcity druh zvierata (general volam pre vsetky zvierata)
-// staci napriklad ked vrati 3 zvierata
+
+/** Dalej na stranke sa zaoberate specifickym druhom lisiek, ktore maju okrem zakladnych animal parametrov,
+ aj dalsie parametre ako: furSoftness, skinType a ageOfSexualMaturity. Napiste co najjednoduchsie interface
+ ktory bude popisavat tieto konkretne druhy lisok */ 
+
+/** napiste prikladny response zo servera v const premennej ako by vyzeral backendovy response, keby
+ volam taketo animals API s tym ze nespecifikujem urcity druh zvierata (general volam pre vsetky zvierata)
+ staci napriklad ked vrati 3 zvierata */ 
 
 // napiste funkciu otypovanu typescriptom, (bud arrow alebo normalne function()), ktora moze(nemusi) brat ako parameter
 // nazov zvierata (urcit parameter typ) a explicitine urcit animal interface (ktore ste v prvej ulohe napisali), ktory tato funkcia vracia
@@ -54,5 +56,5 @@ export interface IFox extends IAnimalResponse {
 // v tele funkcie nemusi byt zatial nic (mozte tam len napr. console.log(name), ktore prichadza ako parameter, potom si ukazeme ako
 // by sa takyto request volal
 
-//napisat funkciu ktora berie ako vstup. parameter zviera s interfacom ktory ste urcili v prvej ulohe,
+//napisat funkciu ktora berie ako vstup parameter zviera s interfacom ktory ste urcili v prvej ulohe,
 // vo funkcii destrukturovat atributy weight a height a aby funkcii vracala BMI zvierata (len jednoduche weight/height na druhu)
