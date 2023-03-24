@@ -5,13 +5,40 @@
 // ako si myslite ze by to mohlo byt otypovane, nizsie vam pisem jeden prikladny response z backendu
 // (podla neho urcite ktory atribut moze/nemusi chodit v reponse). Priklad responsu:
 
-export const animalResponse = {
-  name: "Fox",
-  weight: 20,
-  height: 100,
-  lifespan: "7 - 10 years",
-  locations: ["Slovakia", "Poland", "Hungary"],
-};
+export enum LocationsEnum {
+  SVK = "Slovakia",
+  PLN = "Poland",
+  HUN = "Hungary",
+  CZE = "Czechia",
+  AUT = "Austria",
+  UKR = "Ukraine"
+}
+
+export enum FoxEnum {
+  SOFT = "Soft",
+  ROUGH = "Rough"
+}
+
+export enum SkinTypeEnum {
+  DARK = "dark",
+  LIGHT = "light"
+}
+
+export interface IAnimalResponse {
+  name?: string;
+  weight?: number;
+  height?: number;
+  lifespan?: number;
+  locations: LocationsEnum;
+  dateOfApperiance?: Date;
+  topSpeed?: number;
+}
+
+export interface IFox extends IAnimalResponse {
+  furSoftness: FoxEnum;
+  skinType: SkinTypeEnum;
+  ageOfSexualMaturity?: number;
+}
 
 // Dalej na stranke sa zaoberate specifickym druhom lisiek, ktore maju okrem zakladnych animal parametrov,
 // aj dalsie parametre ako: furSoftness, skinType a ageOfSexualMaturity. Napiste co najjednoduchsie interface
